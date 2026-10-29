@@ -1,0 +1,53 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/@:handle",
+      "destination": "/profile"
+    },
+    {
+      "source": "/post/:id",
+      "destination": "/post"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/.well-known/apple-app-site-association",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/json"
+        }
+      ]
+    },
+    {
+      "source": "/.well-known/assetlinks.json",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/json"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "no-referrer"
+        }
+      ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/android",
+      "destination": "/downloads/sniffin-v3.3.1.apk",
+      "permanent": false
+    }
+  ]
+}

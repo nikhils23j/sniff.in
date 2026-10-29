@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <title>View a profile on Sniff.in</title>
+  <style>
+    :root { color-scheme: light; font-family: -apple-system, "Segoe UI", Roboto, sans-serif; background: #faf9fd; color: #252039; }
+    * { box-sizing: border-box; } body { margin: 0; } main { max-width: 460px; margin: 0 auto; padding: 56px 22px; text-align: center; }
+    .brand { font-size: 35px; font-weight: 800; color: #6534d7; } section { background: white; border: 1px solid #ebe6f5; border-radius: 24px; padding: 28px 22px; margin-top: 30px; box-shadow: 0 12px 32px #2e185112; }
+    h1 { font-size: 24px; margin: 0 0 8px; } p { line-height: 1.5; color: #625b74; } a { display: block; text-decoration: none; border-radius: 14px; padding: 15px; margin-top: 12px; font-weight: 700; }
+    .primary { background: #6534d7; color: #fff; } .secondary { background: #eee8fb; color: #6534d7; }
+  </style>
+</head>
+<body><main>
+  <div class="brand">sniff.in</div>
+  <section>
+    <h1>Open this profile in Sniff.in</h1>
+    <p>Profiles are visible only to people who have permission to view them. Sign in to the app to see this person.</p>
+    <a id="open" class="primary" href="#">Open in app</a>
+    <a id="install" class="secondary" href="/android">Get the Android app</a>
+    <p id="invalid" hidden>This profile link is invalid. Ask for a new link.</p>
+  </section>
+</main><script>
+  var match = location.pathname.match(/^\/@([a-z0-9_]{3,20})\/?$/i);
+  var open = document.getElementById('open');
+  if (match) open.href = 'sniffin://@' + encodeURIComponent(match[1].toLowerCase());
+  else { open.hidden = true; document.getElementById('invalid').hidden = false; }
+</script></body></html>

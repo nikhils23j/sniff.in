@@ -1,0 +1,58 @@
+/** Non-dating conversation prompts curated from the owner's supplied source list. */
+export const PROFILE_PROMPTS = [
+  { key: 'greatest_strength', title: 'My greatest strength' },
+  { key: 'know_about_me', title: 'The one thing you should know about me is…' },
+  { key: 'random_fact', title: 'A random fact I love is…' },
+  { key: 'friends_describe', title: 'My friends describe me as…' },
+  { key: 'simple_pleasures', title: 'My simple pleasures are…' },
+  { key: 'happiest_when', title: 'I’m happiest when…' },
+  { key: 'after_work', title: 'After work you can find me…' },
+  { key: 'geek_out', title: 'I geek out on…' },
+  { key: 'random_skill', title: 'My most random skill is…' },
+  { key: 'favorite_nothing', title: 'My favorite way to do nothing is…' },
+  { key: 'shower_thought', title: 'A shower thought I recently had' },
+  { key: 'life_goal', title: 'A life goal of mine' },
+  { key: 'fixes_mood', title: 'Nothing fixes my mood like…' },
+  { key: 'home_meal', title: 'The meal that instantly feels like home is… because…' },
+  { key: 'festival_moment', title: 'The festival moment I look forward to most is…' },
+  { key: 'teach_me', title: 'Teach me something about…' },
+  { key: 'ask_me_about', title: 'Ask me about…' },
+  { key: 'change_my_mind', title: 'Change my mind about…' },
+  { key: 'hot_take', title: 'Give me your hot take on…' },
+  { key: 'settle_debate', title: 'Settle a debate:' },
+  { key: 'travel_tips', title: 'Give me travel tips for…' },
+  { key: 'would_you_rather', title: 'Would you rather…' },
+  { key: 'two_truths', title: 'Two truths and a lie' },
+  { key: 'dad_joke', title: 'My best dad joke' },
+  { key: 'quick_rant', title: 'A quick rant about…' },
+  { key: 'oddly_competitive', title: 'I’m oddly competitive about…' },
+  { key: 'wont_shut_up', title: 'I won’t shut up about…' },
+  { key: 'life_soundtrack', title: 'Apparently, my life’s soundtrack is…' },
+  { key: 'never_again', title: 'One thing I’ll never do again' },
+  { key: 'biggest_risk', title: 'The biggest risk I’ve taken' },
+  { key: 'spontaneous', title: 'The most spontaneous thing I’ve done' },
+  { key: 'travel_story', title: 'My best travel story' },
+  { key: 'changed_perspective', title: 'An experience that changed my perspective' },
+  { key: 'unexpected_achievement', title: 'My most unexpected achievement' },
+  { key: 'best_spot', title: 'I know the best spot in town for…' },
+  { key: 'dream_destination', title: 'My dream destination is…' },
+  { key: 'weekend', title: 'My ideal weekend looks like…' },
+  { key: 'new_city', title: 'My favorite way to explore a new city' },
+  { key: 'self_care', title: 'My self-care routine is…' },
+  { key: 'habit_building', title: 'A habit I’m trying to build' },
+  { key: 'difficult_day_reset', title: 'What helps me reset after a difficult day' },
+  { key: 'proud_of', title: 'Something I’m proud of myself for' },
+  { key: 'song_never_skip', title: 'A song I never skip' },
+  { key: 'repeat_movie', title: 'A movie I can watch repeatedly' },
+  { key: 'underrated', title: 'Something that’s underrated' },
+  { key: 'comfort_food', title: 'My comfort food is…' },
+  { key: 'free_evening', title: 'My favorite way to spend a free evening' },
+  { key: 'when_bored', title: 'My go-to plan when I’m bored' },
+] as const;
+
+export const MAX_PROFILE_PROMPTS = 3;
+export const MAX_PROFILE_PHOTOS = 6;
+
+export function promptTitle(key: string): string {
+  return PROFILE_PROMPTS.find((p) => p.key === key)?.title ?? key;
+}

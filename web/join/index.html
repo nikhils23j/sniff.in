@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <title>Join a Server on Sniff.in</title>
+  <style>
+    :root { --violet:#6C3CE9; --rani:#E91E63; --saffron:#FF8A00; --ink:#22202B; --muted:#615C6E; --cream:#FFFBF5; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: -apple-system, "Segoe UI", Roboto, sans-serif; background: var(--cream); color: var(--ink); }
+    .wrap { max-width: 440px; margin: 0 auto; padding: 40px 22px; text-align: center; }
+    .logo { font-weight: 800; font-size: 34px; color: #3A2E80; letter-spacing: -1px; }
+    .tag { color: var(--muted); margin: 6px 0 28px; }
+    .card { background: #fff; border-radius: 24px; padding: 26px 22px; box-shadow: 0 10px 30px rgba(91,58,30,.08); }
+    h1 { font-size: 22px; margin: 0 0 8px; }
+    p { color: var(--muted); line-height: 1.5; }
+    .btn { display: block; width: 100%; padding: 15px; border-radius: 16px; font-weight: 700; font-size: 16px; text-decoration: none; margin-top: 12px; border: 0; cursor: pointer; }
+    .primary { color: #fff; background: linear-gradient(90deg, var(--saffron), var(--rani)); }
+    .secondary { color: var(--violet); background: #EFE9FF; }
+    .code { font: 700 30px/1.2 ui-monospace, Menlo, monospace; letter-spacing: 6px; color: #3A2E80; margin: 14px 0 4px; }
+    .small { font-size: 13px; color: var(--muted); margin-top: 18px; }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="logo">sniff.in</div>
+    <div class="tag">Skip the Introduction. Start the Connection.</div>
+    <div class="card">
+      <h1>You're invited to a Server</h1>
+      <p id="desc">Open this invite in the Sniff.in app to join.</p>
+      <div id="codeBox" class="hidden"><p>Or enter this code in the app (Discover → QR icon):</p><div id="code" class="code"></div></div>
+      <a id="open" class="btn primary" href="#">Open in Sniff.in</a>
+      <a id="android" class="btn secondary" href="#">Get the Android app</a>
+      <a id="ios" class="btn secondary hidden" href="#">Get the iPhone app</a>
+      <p class="small">Invites are checked by Sniff.in when you join. They can expire or be revoked by the Server's admins.</p>
+    </div>
+  </div>
+  <script>
+    // Config: update when store listings exist.
+    var ANDROID_URL = '/android';
+    var IOS_URL = '';
+    var params = new URLSearchParams(location.search);
+    var token = (params.get('t') || '').replace(/[^A-Za-z0-9_=-]/g, '').slice(0, 64);
+    var deep = 'sniffin://join' + (token ? '?t=' + encodeURIComponent(token) : '');
+    document.getElementById('open').href = deep;
+    document.getElementById('android').href = ANDROID_URL;
+    if (IOS_URL) { var i = document.getElementById('ios'); i.href = IOS_URL; i.classList.remove('hidden'); }
+    if (/^[A-Za-z0-9]{8}$/.test(token)) {
+      document.getElementById('code').textContent = token.toUpperCase().replace(/^(.{4})/, '$1 ');
+      document.getElementById('codeBox').classList.remove('hidden');
+    }
+    if (!token) document.getElementById('desc').textContent = 'This invite link is missing its code. Ask for a new one.';
+    // If the app is installed and links aren't verified yet, try the custom scheme once.
+    if (token) setTimeout(function () { location.href = deep; }, 300);
+  </script>
+</body>
+</html>

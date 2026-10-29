@@ -1,0 +1,10 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["APPLE_TEAM_ID.in.sniff.app"],
+        "components": [{ "/": "/join*", "comment": "Sniff.in Server invitations" }]
+      }
+    ]
+  }
+}
