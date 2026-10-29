@@ -1,0 +1,10 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "in.sniff.app",
+      "sha256_cert_fingerprints": ["6A:13:85:39:1E:D6:0A:27:41:8E:46:34:02:C4:3F:B3:D4:E6:66:69:AF:79:9F:E9:47:D7:75:77:81:6C:11:53"]
+    }
+  }
+]

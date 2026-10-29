@@ -1,0 +1,8 @@
+{
+  "nodeModulesDir": "none",
+  "imports": {
+    "npm:@anthropic-ai/sdk": "npm:@anthropic-ai/sdk@0.135.0",
+    "npm:@supabase/supabase-js@2": "npm:@supabase/supabase-js@2.118.0",
+    "npm:nodemailer@6.9.16": "npm:nodemailer@6.9.16"
+  }
+}
